@@ -1,6 +1,6 @@
 <template>
   <el-container style="height: 100vh; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-aside width="250px" style="background-color: rgb(238, 241, 246)">
       <el-menu router :default-active="$route.path">
         <el-submenu index="1">
           <template slot="title">

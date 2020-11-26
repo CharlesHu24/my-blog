@@ -1,10 +1,9 @@
 <template>
   <div>
     <m-top-handle title="昵称" content="新建用户">
-      <el-button class="fr" slot="email" type="primary" @click="sendEmail"
-        >推送邮件</el-button
-      >
+      <el-button class="fr" slot="email" type="primary" @click="sendEmail">推送邮件</el-button>
     </m-top-handle>
+    <h1>留言评论用户列表</h1>
     <el-table
       :data="tableData"
       border

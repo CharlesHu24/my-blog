@@ -1,6 +1,7 @@
 <template>
   <div>
-    <m-top-handle title="昵称" content="留言"></m-top-handle>
+    <m-top-handle title="昵称" content="评论"></m-top-handle>
+    <h1>评论列表</h1>
     <el-table :data="tableData" border>
       <el-table-column type="index" label="序号" width="50"></el-table-column>
       <el-table-column prop="_id" label="id"></el-table-column>
@@ -26,7 +27,7 @@ export default {
   data() {
     return {
       tableData: [],
-      title: ""
+      title: "",
     };
   },
   created() {
@@ -34,33 +35,30 @@ export default {
   },
   methods: {
     async getList() {
-      let res = await this.$http.get("/rest/messages");
+      let res = await this.$http.get("/rest/comments");
       this.tableData = res.data;
     },
     deleteHandle(data) {
       this.$confirm(`是否确定要删除留言: ${data.content} ?`, "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
-        type: "warning"
+        type: "warning",
       })
         .then(async () => {
-          await this.$http.delete(`/rest/messages/${data._id}`);
+          await this.$http.delete(`/rest/comments/${data._id}`);
           this.getList();
           this.$message({
             type: "success",
-            message: "删除成功!"
+            message: "删除成功!",
           });
         })
         .catch(() => {
           this.$message({
             type: "info",
-            message: "已取消删除"
+            message: "已取消删除",
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
