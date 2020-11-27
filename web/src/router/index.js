@@ -15,7 +15,7 @@ const routes = [
   },
   {
     path: '/home',
-    component: Home,
+    component: () => import('views/home/Home'),
     meta: {
       title: 'Home'
     }
@@ -23,21 +23,21 @@ const routes = [
   //  跟上页码
   {
     path: '/blog',
-    component: Blog,
+    component: () => import('views/blog/Blog'),
     meta: {
       title: 'Blog'
     }
   },
   {
     path: '/detail',
-    component: Detail,
+    component: () => import('views/detail/Detail'),
     meta: {
       title: 'Blog Detail'
     }
   },
   {
     path: '/about',
-    component: About,
+    component: () => import('views/about/About'),
     meta: {
       title: 'About us'
     }
